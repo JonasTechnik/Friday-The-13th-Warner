@@ -28,59 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.resultLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dragBar = new System.Windows.Forms.Panel();
-            this.SuspendLayout();
+            resultLabel = new Label();
+            label1 = new Label();
+            dragBar = new Panel();
+            closeBTN = new Button();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            dragBar.SuspendLayout();
+            SuspendLayout();
             // 
             // resultLabel
             // 
-            this.resultLabel.AutoSize = true;
-            this.resultLabel.Font = new System.Drawing.Font("Matura MT Script Capitals", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.resultLabel.Location = new System.Drawing.Point(302, 211);
-            this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(153, 39);
-            this.resultLabel.TabIndex = 0;
-            this.resultLabel.Text = "00.00.00";
+            resultLabel.AutoSize = true;
+            resultLabel.Font = new Font("Chiller", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            resultLabel.ForeColor = Color.FromArgb(179, 27, 27);
+            resultLabel.Location = new Point(245, 198);
+            resultLabel.Name = "resultLabel";
+            resultLabel.Size = new Size(188, 56);
+            resultLabel.TabIndex = 0;
+            resultLabel.Text = "00.00.00";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Ravie", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(209, 159);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 39);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Friday the 13th";
+            label1.AutoSize = true;
+            label1.Font = new Font("Goudy Old Style", 27.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(209, 159);
+            label1.Name = "label1";
+            label1.Size = new Size(251, 43);
+            label1.TabIndex = 1;
+            label1.Text = "Friday the 13th";
             // 
             // dragBar
             // 
-            this.dragBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(74)))), ((int)(((byte)(109)))));
-            this.dragBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dragBar.Location = new System.Drawing.Point(0, 0);
-            this.dragBar.Name = "dragBar";
-            this.dragBar.Size = new System.Drawing.Size(781, 28);
-            this.dragBar.TabIndex = 2;
-            this.dragBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dragBar_MouseDown);
-            this.dragBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dragBar_MouseMove);
-            this.dragBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dragBar_MouseUp);
+            dragBar.BackColor = Color.FromArgb(255, 102, 0);
+            dragBar.Controls.Add(closeBTN);
+            dragBar.Dock = DockStyle.Top;
+            dragBar.Location = new Point(0, 0);
+            dragBar.Name = "dragBar";
+            dragBar.Size = new Size(781, 28);
+            dragBar.TabIndex = 2;
+            dragBar.MouseDown += dragBar_MouseDown;
+            dragBar.MouseMove += dragBar_MouseMove;
+            dragBar.MouseUp += dragBar_MouseUp;
+            // 
+            // closeBTN
+            // 
+            closeBTN.FlatAppearance.BorderSize = 0;
+            closeBTN.FlatStyle = FlatStyle.Flat;
+            closeBTN.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            closeBTN.ForeColor = Color.White;
+            closeBTN.Location = new Point(753, 0);
+            closeBTN.Name = "closeBTN";
+            closeBTN.Size = new Size(28, 28);
+            closeBTN.TabIndex = 0;
+            closeBTN.Text = "X";
+            closeBTN.UseVisualStyleBackColor = true;
+            closeBTN.Click += closeBTN_Click;
             // 
             // mainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(94)))), ((int)(((byte)(129)))));
-            this.ClientSize = new System.Drawing.Size(781, 362);
-            this.Controls.Add(this.dragBar);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.resultLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "mainForm";
-            this.ShowIcon = false;
-            this.Load += new System.EventHandler(this.mainForm_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(23, 23, 23);
+            ClientSize = new Size(781, 362);
+            Controls.Add(dragBar);
+            Controls.Add(label1);
+            Controls.Add(resultLabel);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "mainForm";
+            ShowIcon = false;
+            dragBar.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -88,5 +107,7 @@
         private Label resultLabel;
         private Label label1;
         private Panel dragBar;
+        private Button closeBTN;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
